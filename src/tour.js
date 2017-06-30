@@ -508,33 +508,33 @@ function moveToTarget() {
 
 
 
-const template = '
-  <div id="Tour" class="hidden">
-    <div id="Tour-box-wrap">
-      <div id="Tour-box">
-        <div id="Tour-tip" class="top center"></div>
-        <div id="Tour-step"></div>
-        <div id="Tour-length"></div>
-        <div id="Tour-close">&#10005</div>
-        <div id="Tour-content">
-          <div id="Tour-inner-content"></div>
+const template = "
+  <div id='Tour' class='hidden'>
+    <div id='Tour-box-wrap'>
+      <div id='Tour-box'>
+        <div id='Tour-tip' class='top center'></div>
+        <div id='Tour-step'></div>
+        <div id='Tour-length'></div>
+        <div id='Tour-close'>&#10005</div>
+        <div id='Tour-content'>
+          <div id='Tour-inner-content'></div>
         </div>
-        <div id="Tour-actions">
-          <button id="Tour-previous"></button>
-          <button id="Tour-next"></button>
+        <div id='Tour-actions'>
+          <button id='Tour-previous'></button>
+          <button id='Tour-next'></button>
         </div>
       </div>
     </div>
-    <div id="Tour-masks">
-      <div class="mask top"></div>
-      <div class="mask right"></div>
-      <div class="mask bottom"></div>
-      <div class="mask left"></div>
-      <div class="mask center"></div>
+    <div id='Tour-masks'>
+      <div class='mask top'></div>
+      <div class='mask right'></div>
+      <div class='mask bottom'></div>
+      <div class='mask left'></div>
+      <div class='mask center'></div>
     </div>
-    <canvas id="Tour-canvas"></canvas>
+    <canvas id='Tour-canvas'></canvas>
   </div>
-'
+"
 
 function injectTemplate(){
   const wrap = document.createElement('div')
