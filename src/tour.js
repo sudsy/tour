@@ -32,11 +32,11 @@ const dims = {}
 const errors = {
   notFound: {
     error: 'not_found',
-    message: `Step could not be found.`
+    message: 'Step could not be found.'
   },
   interrupted: {
     error: 'interrupted',
-    message: `The tour was interrupted`
+    message: 'The tour was interrupted'
   }
 }
 
@@ -184,14 +184,14 @@ function prepView(){
 
   // Check for valid placement default
   if (!validPriorities(service.current.placement)) {
-    console.warn(`Tour - Invalid placement setting found in tour config. Must be an array eg: ['bottom', 'right', 'top', 'left']`, service.current)
+    console.warn("Tour - Invalid placement setting found in tour config. Must be an array eg: ['bottom', 'right', 'top', 'left']", service.current)
     service.current.placement = defaults.placement
   }
   // Check for valid step placement
   service.current.steps.forEach((step) => {
     if (!step.placement) { return }
     if (!validPriorities(step.placement)) {
-      console.warn(`Tour - Invalid placement setting found in step. Must be an array eg: ['bottom', 'right', 'top', 'left']`, step)
+      console.warn("Tour - Invalid placement setting found in step. Must be an array eg: ['bottom', 'right', 'top', 'left']", step)
     }
   })
 
@@ -508,7 +508,7 @@ function moveToTarget() {
 
 
 
-const template = `
+const template = '
   <div id="Tour" class="hidden">
     <div id="Tour-box-wrap">
       <div id="Tour-box">
@@ -534,7 +534,7 @@ const template = `
     </div>
     <canvas id="Tour-canvas"></canvas>
   </div>
-`
+'
 
 function injectTemplate(){
   const wrap = document.createElement('div')
