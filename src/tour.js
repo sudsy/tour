@@ -9,7 +9,7 @@ const defaults = {
   maskScrollThrough: true,
   maskColor: 'rgba(0,0,0,.3)',
   dark: false,
-  scrollBox: navigator.userAgent.indexOf('AppleWebKit') != -1 ? "body" : "html",
+  scrollBox: navigator.userAgent.indexOf('AppleWebKit') != -1 ? 'body' : 'html',
   previousText: 'Previous',
   nextText: 'Next',
   finishText: 'Finish',
@@ -184,14 +184,14 @@ function prepView(){
 
   // Check for valid placement default
   if (!validPriorities(service.current.placement)) {
-    console.warn("Tour - Invalid placement setting found in tour config. Must be an array eg: ['bottom', 'right', 'top', 'left']", service.current)
+    console.warn('Tour - Invalid placement setting found in tour config. Must be an array eg: ['bottom', 'right', 'top', 'left']', service.current)
     service.current.placement = defaults.placement
   }
   // Check for valid step placement
   service.current.steps.forEach((step) => {
     if (!step.placement) { return }
     if (!validPriorities(step.placement)) {
-      console.warn("Tour - Invalid placement setting found in step. Must be an array eg: ['bottom', 'right', 'top', 'left']", step)
+      console.warn('Tour - Invalid placement setting found in step. Must be an array eg: ['bottom', 'right', 'top', 'left']', step)
     }
   })
 
@@ -216,7 +216,7 @@ function prepView(){
     masks_left: $('#Tour-masks .left'),
     masks_center: $('#Tour-masks .center'),
     canvas: $('#Tour-canvas'),
-    ctx: $('#Tour-canvas')[0].getContext("2d"),
+    ctx: $('#Tour-canvas')[0].getContext('2d'),
     scroll: $(current.scrollBox),
     target: false
   })
@@ -508,33 +508,33 @@ function moveToTarget() {
 
 
 
-const template = '
-  <div id="Tour" class="hidden">
-    <div id="Tour-box-wrap">
-      <div id="Tour-box">
-        <div id="Tour-tip" class="top center"></div>
-        <div id="Tour-step"></div>
-        <div id="Tour-length"></div>
-        <div id="Tour-close">&#10005</div>
-        <div id="Tour-content">
-          <div id="Tour-inner-content"></div>
+const template = "
+  <div id='Tour' class='hidden'>
+    <div id='Tour-box-wrap'>
+      <div id='Tour-box'>
+        <div id='Tour-tip' class='top center'></div>
+        <div id='Tour-step'></div>
+        <div id='Tour-length'></div>
+        <div id='Tour-close'>&#10005</div>
+        <div id='Tour-content'>
+          <div id='Tour-inner-content'></div>
         </div>
-        <div id="Tour-actions">
-          <button id="Tour-previous"></button>
-          <button id="Tour-next"></button>
+        <div id='Tour-actions'>
+          <button id='Tour-previous'></button>
+          <button id='Tour-next'></button>
         </div>
       </div>
     </div>
-    <div id="Tour-masks">
-      <div class="mask top"></div>
-      <div class="mask right"></div>
-      <div class="mask bottom"></div>
-      <div class="mask left"></div>
-      <div class="mask center"></div>
+    <div id='Tour-masks'>
+      <div class='mask top'></div>
+      <div class='mask right'></div>
+      <div class='mask bottom'></div>
+      <div class='mask left'></div>
+      <div class='mask center'></div>
     </div>
-    <canvas id="Tour-canvas"></canvas>
+    <canvas id='Tour-canvas'></canvas>
   </div>
-'
+"
 
 function injectTemplate(){
   const wrap = document.createElement('div')
@@ -1074,25 +1074,25 @@ function resolveEventSystem(){
 
   // detect event model
   if (window.addEventListener) {
-    _addEventListener = "addEventListener"
-    _removeEventListener = "removeEventListener"
+    _addEventListener = 'addEventListener'
+    _removeEventListener = 'removeEventListener'
   } else {
-    _addEventListener = "attachEvent"
-    _removeEventListener = "detachEvent"
-    prefix = "on"
+    _addEventListener = 'attachEvent'
+    _removeEventListener = 'detachEvent'
+    prefix = 'on'
   }
 
   // detect available wheel event
-  support = "onwheel" in document.createElement("div") ? "wheel" : // Modern browsers support "wheel"
-    document.onmousewheel !== undefined ? "mousewheel" : // Webkit and IE support at least "mousewheel"
-    "DOMMouseScroll" // let's assume that remaining browsers are older Firefox
+  support = 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support 'wheel'
+    document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least 'mousewheel'
+    'DOMMouseScroll' // let's assume that remaining browsers are older Firefox
 
   eventUtils.addWheelListener = (elem, callback, useCapture) => {
     _addWheelListener(elem, support, callback, useCapture)
 
     // handle MozMousePixelScroll in older Firefox
-    if (support == "DOMMouseScroll") {
-      _addWheelListener(elem, "MozMousePixelScroll", callback, useCapture)
+    if (support == 'DOMMouseScroll') {
+      _addWheelListener(elem, 'MozMousePixelScroll', callback, useCapture)
     }
   }
 
@@ -1100,17 +1100,17 @@ function resolveEventSystem(){
     _removeWheelListener(elem, support, callback, useCapture)
 
     // handle MozMousePixelScroll in older Firefox
-    if (support == "DOMMouseScroll") {
-      _removeWheelListener(elem, "MozMousePixelScroll", callback, useCapture)
+    if (support == 'DOMMouseScroll') {
+      _removeWheelListener(elem, 'MozMousePixelScroll', callback, useCapture)
     }
   }
 
   function _removeWheelListener(elem, eventName, callback, useCapture) {
-    elem[_removeEventListener](prefix + eventName, support == "wheel" ? callback : original, useCapture || false)
+    elem[_removeEventListener](prefix + eventName, support == 'wheel' ? callback : original, useCapture || false)
   }
 
   function _addWheelListener(elem, eventName, callback, useCapture) {
-    elem[_addEventListener](prefix + eventName, support == "wheel" ? callback : original, useCapture || false)
+    elem[_addEventListener](prefix + eventName, support == 'wheel' ? callback : original, useCapture || false)
   }
 
   function original(originalEvent) {
@@ -1121,8 +1121,8 @@ function resolveEventSystem(){
       // keep a ref to the original event object
       originalEvent: originalEvent,
       target: originalEvent.target || originalEvent.srcElement,
-      type: "wheel",
-      deltaMode: originalEvent.type == "MozMousePixelScroll" ? 0 : 1,
+      type: 'wheel',
+      deltaMode: originalEvent.type == 'MozMousePixelScroll' ? 0 : 1,
       deltaX: 0,
       deltaZ: 0,
       preventDefault: function() {
@@ -1133,7 +1133,7 @@ function resolveEventSystem(){
     }
 
     // calculate deltaY (and deltaX) according to the event
-    if (support == "mousewheel") {
+    if (support == 'mousewheel') {
       event.deltaY = -1 / 40 * originalEvent.wheelDelta
       // Webkit also support wheelDeltaX
       originalEvent.wheelDeltaX && (event.deltaX = -1 / 40 * originalEvent.wheelDeltaX)
